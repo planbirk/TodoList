@@ -1,5 +1,5 @@
 if(jQuery){
-	var httpinfo;
+	
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
 });
@@ -49,10 +49,10 @@ $("input[type='text']").keypress(function(event){
 			// );
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-	    var httpinfo = $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
+	      var httpRequest = $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
-		    	alert("#SUCC");
-            		$("h1").val(result);
+		    	alert("#SUCC" + result	);
+            		$("h1").text(result);
         	},
         	complete: function(xhr,status){
         		alert("COMPLETE= Stauts: " + status.status + " ____ Message: " + status.statusText);
@@ -62,7 +62,7 @@ $("input[type='text']").keypress(function(event){
         		alert("Error: " + error);
         	}
         });
-
+	      	httpRequest();
 		}
 	}
 });
