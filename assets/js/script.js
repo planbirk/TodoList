@@ -51,10 +51,11 @@ $("input[type='text']").keypress(function(event){
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
+		    	alert("#SUCC");
             		$("div").html(result);
         	},
         	complete: function(xhr,status){
-        		alert("Stauts: " + status.status + " ____ Message: " + status.statusText);
+        		alert("COMPLETE= Stauts: " + status.status + " ____ Message: " + status.statusText);
         		
         	},
         	error: function(xhr,status,error){
