@@ -23,11 +23,11 @@ $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
 		//this is equals to input element
 		if($(this).val() !== ""){
-			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
+			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + $(this).val() + "</li>");
 			//$(this).val(""); //Manually delete the input value, after processing
 
 		    var newRecord = {
-		        id: "ele",
+		        id: 1,
 		        value: $(this).val()
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
