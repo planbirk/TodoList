@@ -38,7 +38,7 @@ $("input[type='text']").keypress(function(event){
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newRecord,
-		      			headers : {"action":"POST"},
+		      			headers : {"relativePath" : "relativePath", "action":"POST"},
 			    success: function(result,status,xhr){
 			    	$("h1").text(result.response.message);
 									    //result.response.id/value/respone
