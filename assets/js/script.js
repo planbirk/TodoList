@@ -65,7 +65,7 @@ $(document).ajaxComplete(function(event,xhr,options){
 	console.log("xhr: \n" + JSON.stringify(xhr));
     console.log("options: \n" + JSON.stringify(options));
 
-    if ( options.url === "ajax/test.html" ) {
+    if ( options.url === url ) {
     	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
 	}
 
