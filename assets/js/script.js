@@ -40,23 +40,28 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			$.post(url, method, inputData, function(data, status){ //Note:jQ001
-				if(data === 'yes') {
-				alert("Yes.\nResponseMessage: \n" + data);
-		    		$("h1").toggleClass(".httpError");
-		    		$("h1").val("Error occurred!")
-			    }else {
-			    	alert("noResp.");
-			    } 
+			// $.post(url, method, inputData, function(data, status){ //Note:jQ001
+			// 	if(data === 'yes') {
+			// 	alert("Yes.\nResponseMessage: \n" + data);
+		 //    		$("h1").toggleClass(".httpError");
+		 //    		$("h1").val("Error occurred!")
+			//     }else {
+			//     	alert("noResp.");
+			//     }
  
-			    }//end $.post()
-			);
+			//     }//end $.post()
+			// );
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		    $.ajax({url: url, async: false, type : method, 
-		    	success: function(result){
+	    $.ajax({url: url, async: false, type : method, 
+		    success: function(result){
             		$("div").html(result);
-        	}});
+        	},
+        	completed : function(xhr,status){
+        		alert("Stauts: " + status.status + " ____ Message: " + status.statusText);
+        		alert("result: " + result);
+        	}
+        });
 
 		}
 	}
