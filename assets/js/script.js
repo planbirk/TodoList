@@ -51,11 +51,20 @@ $("input[type='text']").keypress(function(event){
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 	      var httpRequest = $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
-		    	console.log("ajaxSuccess: " + result	);
-            		$("h1").text(result);
+		    //result.response.id/value/respone
+        	//status eq "success"
+        	// xhr 
+        		// .status = 200 
+        		// .responseText = [logicapp body]
+        		// .statusText = "success"
+        		// .status.then(function)
+		    	console.log("ajaxSuccess: " + xhr.status + " " + xhr.statusText);
+		    	console.log(xhr.responseText);
+            		$("h1").text(result.message);
+            		$("")
         	},
-        	complete: function(xhr,status){
-        		alert("ajaxComplete:   Status:" + status.status + " ____ Message: " + status.statusText);
+        	complete: function(xhr,status){ 
+        		console.log("ajaxComplete");
         		
         	},
         	error: function(xhr,status,error){
