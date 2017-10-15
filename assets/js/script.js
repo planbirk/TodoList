@@ -20,20 +20,24 @@ $("input[type='text']").keypress(function(event){
 		if(todoText !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 			$(this).val("");
-			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Y-INwU77A5otxVOpenUv_l74BXTkhWp7QciHny70Ky0";
+			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
 			var data = {
 		        id: "ele",
 		        value: "1"
 		    };
 
-
 			$.post(url, data,function(data, status){
+				if(data === 'yes') {
 			    	if(status === "success"){
 			    		//works
 			    	}else{
 			    		$("h1").toggleClass(".httpError");
 			    		$("h1").val("Error occurred!")
 			    	}
+			    }else {
+			    	alert("noResp.");
+			    }
+
 			    },
 
 			);
@@ -51,49 +55,7 @@ $(document).ajaxSuccess(function(event,xhr,options){
 	console.log("xhr: \n" + JSON.stringify(xhr));
     console.log("options: \n" + JSON.stringify(options));
 }); 
-	/*
-{
-	"url": "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Y-INwU77A5otxVOpenUv_l74BXTkhWp7QciHny70Ky0",
-	"type": "POST",
-	"isLocal": false,
-	"global": true,
-	"processData": true,
-	"async": true,
-	"contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-	"accepts": {
-		"*": "*\/*",
-		"text": "text/plain",
-		"html": "text/html",
-		"xml": "application/xml, text/xml",
-		"json": "application/json, text/javascript",
-		"script": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"
-	},
-	"contents": {
-		"xml": {},
-		"html": {},
-		"json": {},
-		"script": {}
-	},
-	"responseFields": {
-		"xml": "responseXML",
-		"text": "responseText",
-		"json": "responseJSON"
-	},
-	"converters": {
-		"text html": true
-	},
-	"flatOptions": {
-		"url": true,
-		"context": true
-	},
-	"jsonp": "callback",
-	"data": "id=ele&value=1",
-	"dataTypes": ["text"],
-	"crossDomain": true,
-	"hasContent": true
-}
 
-*/
 
 
 $(".fa-plus").click(function(){
