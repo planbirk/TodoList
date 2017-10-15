@@ -79,3 +79,8 @@ input:focus{
 .fa-plus{
 	float:right;
 }
+
+.httpError{
+	text-align: center;
+	color: #f44b42;
+}

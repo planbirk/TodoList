@@ -28,13 +28,23 @@ $("input[type='text']").keypress(function(event){
 		        value: "1"
 		    },
 		    function(data, status){
-		        alert("Data: " + data + "\nStatus: " + status);
+		    	if(status === "success"){
+		    		alert("Data: " + data + "\nStatus: " + status);
+		    	}else{
+		    		$("h1").toggleClass(".httpError");
+		    		$("h1").val("Error occurred!")
+		    	}
+		        
 		    });
 		}
 	}
 })
 
-		//#modified http request
+	/*
+
+#modified http request
+
+*/
 
 
 $(".fa-plus").click(function(){
