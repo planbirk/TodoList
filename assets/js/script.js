@@ -27,7 +27,7 @@ $("input[type='text']").keypress(function(event){
 
 		    var newItem = {
 		        id: "ele",
-		        value: $(this).val()
+		        value: $(this).text()
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				// typeof value === 'number'
