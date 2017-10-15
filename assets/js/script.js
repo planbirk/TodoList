@@ -57,20 +57,27 @@ $("input[type='text']").keypress(function(event){
 
 
 $(document).ajaxComplete(function(event,xhr,options){
-	var returnString = "AJAX request successfully completed";
-	returnString += "\nEvent: " + event;
-	returnString += "\nxhr: " + xhr;
-	returnString += "\noptions: " + options;
-	console.log("event: \n" + JSON.stringify(event));
-	console.log("xhr: \n" + JSON.stringify(xhr));
-    console.log("options: \n" + JSON.stringify(options));
+	alert("AJAX request successfully completed");
+	if(xhr.status === 200){
+		alert("200er Code");
+		if(xhr.status === "parseerror"){
+			alert("parseerror");
+		}
+	}else{
 
+	}
+
+	// returnString += "\nEvent: " + event;
+	// returnString += "\nxhr: " + xhr;
+	// returnString += "\noptions: " + options;
+	// console.log("event: \n" + JSON.stringify(event));
+	// console.log("xhr: \n" + JSON.stringify(xhr));
+ //    console.log("options: \n" + JSON.stringify(options));
     if ( options.url === "https://prod-33.westeurope.logic.azure.com/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54" ) {
     	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
 	}
 
 });
-
 
 $(".fa-plus").click(function(){
 	$("input[type='text']").fadeToggle();
