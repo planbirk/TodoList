@@ -1,5 +1,5 @@
 if(jQuery){
-	var jqxhr = null;
+	
 
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
@@ -40,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			jqxhr = $.post(url, method, inputData, function(data, status){
+			var jqxhr = $.post(url, method, inputData, function(data, status){
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
@@ -50,7 +50,16 @@ $("input[type='text']").keypress(function(event){
 			    }
  
 			    }//end $.post()
-			);
+			).jqxhr.success(function(){
+				alert("jqxhr success");
+			}).
+			jqxhr.fail(function(){
+				alert("jqxhr e r r o r");
+			}).
+			jqxhr.always(function(){
+				alert("jqxhr <<<alwaysfunction>>>");
+			});
+			;
 		}
 	}
 })
@@ -58,15 +67,7 @@ $("input[type='text']").keypress(function(event){
 
 $(document).ajaxComplete(function(event,xhr,options){
 	alert("AJAX request successfully completed");
-	jqxhr.success(function(){
-		alert("jqxhr success");
-	}).
-	jqxhr.fail(function(){
-		alert("jqxhr e r r o r");
-	}).
-	jqxhr.always(function(){
-		alert("jqxhr <<<alwaysfunction>>>");
-	});
+	
 	// returnString += "\nEvent: " + event;
 	// returnString += "\nxhr: " + xhr;
 	// returnString += "\noptions: " + options;
