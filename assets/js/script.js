@@ -51,7 +51,7 @@ $("input[type='text']").keypress(function(event){
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
-		    success: function(resultxhr,status){
+		    success: function(result,xhr,status){
             		$("div").html(result);
         	},
         	complete: function(xhr,status){
