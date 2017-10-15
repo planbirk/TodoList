@@ -41,6 +41,15 @@ $("input[type='text']").keypress(function(event){
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
 			$.post(url, method, inputData, function(data, status){ //Note:jQ001
+				data.always(function(){
+					console.log("data");
+				})
+				.done.always(function(){
+					console.log("done");
+				})
+				.fail.always(function(){
+					console.log("fail");
+				});
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
