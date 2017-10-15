@@ -25,9 +25,14 @@ $("input[type='text']").keypress(function(event){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 			//$(this).val("");
 
+			var thisObj = $(this).text();
+			var placeholderthisObj = $(this).text().placeholder;
+			var h1Obj = $("h1").text();
+			var placeholderh1Obj = $("h1").text();
+
 		    var newItem = {
 		        id: "ele",
-		        value: $(this).text()
+		        value: $(this).text().placeholder
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				// typeof value === 'number'
