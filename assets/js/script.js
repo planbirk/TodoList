@@ -23,11 +23,11 @@ $("input[type='text']").keypress(function(event){
 		var todoText = $(this).val();
 		if(todoText !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
-			$(this).val("");
+			//$(this).val("");
 
 		    var newItem = {
 		        id: "ele",
-		        value: $(this).text()
+		        value: $(this).val()
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				// typeof value === 'number'
