@@ -40,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			$.post(url, method, inputData, function(data, status){
+			$.post(url, method, inputData, function(data, status){ //Note:jQ001
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
@@ -50,8 +50,9 @@ $("input[type='text']").keypress(function(event){
 			    }
  
 			    }//end $.post()
-			)
-
+			).then(function (data,xhr,status){
+				alert(xhr.getAllResponseHeaders());
+			});
 		}
 	}
 });
