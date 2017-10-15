@@ -52,7 +52,7 @@ $("input[type='text']").keypress(function(event){
 	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
 		    	alert("#SUCC");
-            		$("div").html(result);
+            		$("div").val(result);
         	},
         	complete: function(xhr,status){
         		alert("COMPLETE= Stauts: " + status.status + " ____ Message: " + status.statusText);
