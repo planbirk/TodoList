@@ -66,7 +66,7 @@ $(document).ajaxComplete(function(event,xhr,options){
 	}).
 	jqxhr.always(function(){
 		alert("jqxhr <<<alwaysfunction>>>");
-	}).
+	});
 	
 
 
