@@ -48,7 +48,7 @@ $("input[type='text']").keypress(function(event){
 			    }else {
 			    	alert("noResp.");
 			    }
-		    	
+
 			    }//end $.post()
 			);
 		}
@@ -65,7 +65,7 @@ $(document).ajaxComplete(function(event,xhr,options){
 	console.log("xhr: \n" + JSON.stringify(xhr));
     console.log("options: \n" + JSON.stringify(options));
 
-    if ( settings.url === "ajax/test.html" ) {
+    if ( options.url === "ajax/test.html" ) {
     	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
 	}
 
