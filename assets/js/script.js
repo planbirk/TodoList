@@ -61,7 +61,7 @@ $(document).ajaxComplete(function(event,xhr,options){
 	jqxhr.success(function(){
 		alert("jqxhr success");
 	}).
-	jqxhr.error(function(){
+	jqxhr.fail(function(){
 		alert("jqxhr e r r o r");
 	}).
 	jqxhr.always(function(){
