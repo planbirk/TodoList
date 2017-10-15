@@ -26,6 +26,17 @@ $("input[type='text']").keypress(function(event){
 		        value: "1"
 		    };
 		    var method = "POST";
+		    
+		    var stuff = JSON.parse('{"testingElement": "2"}', (key,value) =>
+				typeof value === 'number'
+					? value * 2 
+					: value
+		    	); 
+
+		    //{"name":"binchen"};
+			JSON.stringify(j); // '{"name":"binchen"}'
+
+
 
 			$.post(url, method, data, function(data, status){
 				if(data === 'yes') {
