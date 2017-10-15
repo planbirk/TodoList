@@ -61,7 +61,9 @@ $("input[type='text']").keypress(function(event){
 		    	console.log("ajaxSuccess: " + xhr.status + " " + xhr.statusText);
 		    	console.log(xhr.responseText);
             		$("h1").text(result.message);
-            		$("")
+            	console.log($("h1").text());
+            	console.log("changing h1");
+            	console.log($("h1").text());
         	},
         	complete: function(xhr,status){ 
         		console.log("ajaxComplete");
