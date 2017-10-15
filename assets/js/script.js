@@ -53,7 +53,7 @@ $("input[type='text']").keypress(function(event){
 			);
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		    $.ajax({url: "demo_ajax_load.txt", async: false, type : method, 
+		    $.ajax({url: url, async: false, type : method, 
 		    	success: function(result){
             		$("div").html(result);
         	}});
