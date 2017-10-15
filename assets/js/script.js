@@ -51,15 +51,15 @@ $("input[type='text']").keypress(function(event){
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 	      var httpRequest = $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
-		    	alert("#SUCC" + result	);
+		    	console.log("ajaxSuccess: " + result	);
             		$("h1").text(result);
         	},
         	complete: function(xhr,status){
-        		alert("COMPLETE= Stauts: " + status.status + " ____ Message: " + status.statusText);
+        		alert("ajaxComplete:   Status:" + status.status + " ____ Message: " + status.statusText);
         		
         	},
         	error: function(xhr,status,error){
-        		alert("Error: " + error);
+        		alert("ajaxError: " + error);
         	}
         });
 	      	httpRequest();
