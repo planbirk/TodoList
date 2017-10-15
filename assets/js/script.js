@@ -20,20 +20,17 @@ $("input[type='text']").keypress(function(event){
 		if(todoText !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 			$(this).val("");
-			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
-			
+			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";			
 		    var method = "POST";
-		    
-		    var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
-				typeof value === 'number'
-					? value * 2 
-					: value
-		    	); 
-
 		    var inputdata2 = {
 		        id: "ele",
 		        value: "1"
 		    };
+ //   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
+				// typeof value === 'number'
+				// 	? value * 2 
+				// 	: value
+		  //   	); 
 
 		    //{"name":"binchen"};
 			//JSON.stringify(j); // '{"name":"binchen"}'
@@ -53,13 +50,16 @@ $("input[type='text']").keypress(function(event){
 			// );
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2, username: "planbirk",
-		    success: function(result){
+	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
+		    success: function(resultxhr,status){
             		$("div").html(result);
         	},
-        	completed : function(xhr,status){
+        	complete: function(xhr,status){
         		alert("Stauts: " + status.status + " ____ Message: " + status.statusText);
         		alert("result: " + result);
+        	},
+        	error: function(xhr,status,error){
+        		alert("Error: " + error);
         	}
         });
 
@@ -69,7 +69,7 @@ $("input[type='text']").keypress(function(event){
 
 
 $(document).ajaxComplete(function(event,xhr,options){
-	alert("AJAX request successfully completed");
+	console.log(">>>ajaxComplete<<< : AJAX request successfully completed");
 	
 	// returnString += "\nEvent: " + event;
 	// returnString += "\nxhr: " + xhr;
