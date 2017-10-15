@@ -26,8 +26,8 @@ $("input[type='text']").keypress(function(event){
 			//$(this).val("");
 
 			
-			var h1Obj = $("h1").text();
-			var placeholderh1Obj = $("h1").text().placeholder();
+			var h1Element = $("h1").text();
+			
 
 		    var newTask = {
 		        id: "ele",
