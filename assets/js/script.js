@@ -31,6 +31,8 @@ $("input[type='text']").keypress(function(event){
 		        alert("Data: " + data + "\nStatus: " + status);
 		    });
 		}
+	}
+		//#modified http request
 };
 $(".fa-plus").click(function(){
 	$("input[type='text']").fadeToggle();
