@@ -32,8 +32,7 @@ $("input[type='text']").keypress(function(event){
 		    });
 		}
 	}
-
-})};
+})
 
 		//#modified http request
 
