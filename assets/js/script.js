@@ -29,7 +29,7 @@ $("input[type='text']").keypress(function(event){
 
 			$.post(url, data,function(data, status){
 			    	if(status === "success"){
-			    		alert("Data: " + data + "\nStatus: " + status +"\nStatusCode: " + data.status);
+			    		//works
 			    	}else{
 			    		$("h1").toggleClass(".httpError");
 			    		$("h1").val("Error occurred!")
@@ -42,9 +42,13 @@ $("input[type='text']").keypress(function(event){
 })
 
 
-$(document).ajaxSuccess(function(){
-    alert("AJAX request successfully completed");
-});
+$(document).ajaxSuccess(function(event,xhr,options){
+	var returnString = "AJAX request successfully completed";
+	returnString += "\nEvent: " + event;
+	returnString += "\nxhr: " + xhr;
+	returnString += "\noptions: " + options;
+    alert(returnString);
+}); 
 	/*
 
 				
