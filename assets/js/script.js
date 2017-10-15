@@ -30,10 +30,10 @@ $("input[type='text']").keypress(function(event){
 					: value
 		    	); 
 
-		    /*var data = {
+		    var inputdata2 = {
 		        id: "ele",
 		        value: "1"
-		    };*/
+		    };
 
 		    //{"name":"binchen"};
 			//JSON.stringify(j); // '{"name":"binchen"}'
@@ -53,7 +53,7 @@ $("input[type='text']").keypress(function(event){
 			// );
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-	    $.ajax({url: url, async: false, type : method, 
+	    $.ajax({url: url, async: false, type: method, contentType: "JSON", data: inputdata2, username: "planbirk",
 		    success: function(result){
             		$("div").html(result);
         	},
