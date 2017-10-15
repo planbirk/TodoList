@@ -67,16 +67,13 @@ $(document).ajaxComplete(function(event,xhr,options){
 	jqxhr.always(function(){
 		alert("jqxhr <<<alwaysfunction>>>");
 	});
-	
-
-
 	// returnString += "\nEvent: " + event;
 	// returnString += "\nxhr: " + xhr;
 	// returnString += "\noptions: " + options;
 	// console.log("event: \n" + JSON.stringify(event));
 	// console.log("xhr: \n" + JSON.stringify(xhr));
  //    console.log("options: \n" + JSON.stringify(options));
-    if ( options.url === "https://prod-33.westeurope.logic.azure.com/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54" ) {
+    if ( options.url === "https://prod-33.westeurope.logic.azure.com/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54") {
     	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
 	}
 
