@@ -49,7 +49,7 @@ $("input[type='text']").keypress(function(event){
 			// );
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-	      var httpRequest = $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
+	      $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
 		    success: function(result,status,xhr){
 		    //result.response.id/value/respone
         	//status eq "success"
@@ -71,7 +71,7 @@ $("input[type='text']").keypress(function(event){
         		alert("ajaxError: " + error);
         	}
         });
-	      	httpRequest();
+	      	
 		}
 	}
 });
