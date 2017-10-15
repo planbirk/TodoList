@@ -40,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			var jqxhr = $.post(url, method, inputData, function(data, status){
+			$.post(url, method, inputData, function(data, status){
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
@@ -50,19 +50,11 @@ $("input[type='text']").keypress(function(event){
 			    }
  
 			    }//end $.post()
-			).jqxhr.success(function(){
-				alert("jqxhr success");
-			}).
-			jqxhr.fail(function(){
-				alert("jqxhr e r r o r");
-			}).
-			jqxhr.always(function(){
-				alert("jqxhr <<<alwaysfunction>>>");
-			});
-			;
+			)
+
 		}
 	}
-})
+});
 
 
 $(document).ajaxComplete(function(event,xhr,options){
