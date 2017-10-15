@@ -4,6 +4,7 @@ var planbirk_web_dataExchangeURL = "https://prod-33.westeurope.logic.azure.com/w
 var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
+
 	
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
@@ -20,18 +21,14 @@ $("ul").on("click","span",function(event){
  
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
-		var todoText = $(this).val(); //THIS = InputField not H1 <.<
-		if(todoText !== ""){
+		//this is equals to input element
+		if($(this).val() !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
-			//$(this).val("");
+			//$(this).val(""); //Manually delete the input value, after processing
 
-			
-			var h1Element = $("h1").text();
-			
-
-		    var newTask = {
+		    var newRecord = {
 		        id: "ele",
-		        value: $(this).text()
+		        value: $(this).val()
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				// typeof value === 'number'
@@ -40,7 +37,8 @@ $("input[type='text']").keypress(function(event){
 		  //   	); 
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newTask,
+		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newRecord,
+		      			headers : {"action":"POST"},
 			    success: function(result,status,xhr){
 			    	$("h1").text(result.response.message);
 									    //result.response.id/value/respone
