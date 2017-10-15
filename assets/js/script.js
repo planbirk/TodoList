@@ -21,24 +21,26 @@ $("input[type='text']").keypress(function(event){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 			$(this).val("");
 			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
-			var data = {
-		        id: "ele",
-		        value: "1"
-		    };
+			
 		    var method = "POST";
 		    
-		    var stuff = JSON.parse('{"testingElement": "2"}', (key,value) =>
+		    var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				typeof value === 'number'
 					? value * 2 
 					: value
 		    	); 
 
+		    /*var data = {
+		        id: "ele",
+		        value: "1"
+		    };*/
+
 		    //{"name":"binchen"};
-			JSON.stringify(j); // '{"name":"binchen"}'
+			//JSON.stringify(j); // '{"name":"binchen"}'
 
 
 
-			$.post(url, method, data, function(data, status){
+			$.post(url, method, inputData, function(data, status){
 				if(data === 'yes') {
 			    	if(status === "success"){
 			    		//works
