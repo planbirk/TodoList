@@ -58,14 +58,17 @@ $("input[type='text']").keypress(function(event){
 
 $(document).ajaxComplete(function(event,xhr,options){
 	alert("AJAX request successfully completed");
-	if(xhr.status === 200){
-		alert("200er Code");
-		if(xhr.status === "parseerror"){
-			alert("parseerror");
-		}
-	}else{
+	jqxhr.success(function(){
+		alert("jqxhr success");
+	}).
+	jqxhr.error(function(){
+		alert("jqxhr e r r o r");
+	}).
+	jqxhr.always(function(){
+		alert("jqxhr <<<alwaysfunction>>>");
+	}).
+	
 
-	}
 
 	// returnString += "\nEvent: " + event;
 	// returnString += "\nxhr: " + xhr;
