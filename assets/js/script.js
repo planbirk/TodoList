@@ -22,22 +22,16 @@ $("input[type='text']").keypress(function(event){
 			$(this).val("");
 			var url = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Y-INwU77A5otxVOpenUv_l74BXTkhWp7QciHny70Ky0";
 
-		$.post(url,
-	    {
-	        id: "ele",
-	        value: "1"
-	    },
-	    function(data, status){
-	        alert("Data: " + data + "\nStatus: " + status);
-	    });
-		
-	}
-});
-//xx
-
-
-
-
+			$.post(url,
+		    {
+		        id: "ele",
+		        value: "1"
+		    },
+		    function(data, status){
+		        alert("Data: " + data + "\nStatus: " + status);
+		    });
+		}
+};
 $(".fa-plus").click(function(){
 	$("input[type='text']").fadeToggle();
 });
