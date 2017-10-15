@@ -20,19 +20,18 @@ $("ul").on("click","span",function(event){
  
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
-		var todoText = $(this).val();
+		var todoText = $(this).val(); //THIS = InputField not H1 <.<
 		if(todoText !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 			//$(this).val("");
 
-			var thisObj = $(this).text();
-			var placeholderthisObj = $(this).text().placeholder;
+			
 			var h1Obj = $("h1").text();
-			var placeholderh1Obj = $("h1").text();
+			var placeholderh1Obj = $("h1").text().placeholder();
 
-		    var newItem = {
+		    var newTask = {
 		        id: "ele",
-		        value: $(this).text().placeholder
+		        value: $(this).text()
 		    };
  			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
 				// typeof value === 'number'
@@ -41,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 		  //   	); 
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newItem,
+		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newTask,
 			    success: function(result,status,xhr){
 			    	$("h1").text(result.response.message);
 									    //result.response.id/value/respone
