@@ -53,9 +53,10 @@ $("input[type='text']").keypress(function(event){
 			);
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		    $.ajax({url: "demo_ajax_load.txt", async: false, success: function(result){
-            $("div").html(result);
-        }});
+		    $.ajax({url: "demo_ajax_load.txt", async: false, type : method, 
+		    	success: function(result){
+            		$("div").html(result);
+        	}});
 
 		}
 	}
