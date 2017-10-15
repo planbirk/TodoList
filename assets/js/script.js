@@ -55,7 +55,7 @@ $("input[type='text']").keypress(function(event){
         	},
         	complete: function(xhr,status){
         		alert("Stauts: " + status.status + " ____ Message: " + status.statusText);
-        		alert("result: " + result);
+        		
         	},
         	error: function(xhr,status,error){
         		alert("Error: " + error);
