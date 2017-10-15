@@ -39,28 +39,24 @@ $("input[type='text']").keypress(function(event){
 			//JSON.stringify(j); // '{"name":"binchen"}'
 
 
-
-			$.post(url, method, inputData, function(data, status){
+//Send FormData [[[$( "#testform" ).serialize()]]]
+			var jqxhr = $.post(url, method, inputData, function(data, status){
 				if(data === 'yes') {
-			    	if(status === "success"){
-			    		//works
-			    	}else{
-			    		$("h1").toggleClass(".httpError");
-			    		$("h1").val("Error occurred!")
-			    	}
+				alert("Yes.\nResponseMessage: \n" + data);
+		    		$("h1").toggleClass(".httpError");
+		    		$("h1").val("Error occurred!")
 			    }else {
 			    	alert("noResp.");
 			    }
-
-			    },
-
+		    	
+			    }//end $.post()
 			);
 		}
 	}
 })
 
 
-$(document).ajaxSuccess(function(event,xhr,options){
+$(document).ajaxComplete(function(event,xhr,options){
 	var returnString = "AJAX request successfully completed";
 	returnString += "\nEvent: " + event;
 	returnString += "\nxhr: " + xhr;
@@ -68,8 +64,12 @@ $(document).ajaxSuccess(function(event,xhr,options){
 	console.log("event: \n" + JSON.stringify(event));
 	console.log("xhr: \n" + JSON.stringify(xhr));
     console.log("options: \n" + JSON.stringify(options));
-}); 
 
+    if ( settings.url === "ajax/test.html" ) {
+    	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
+	}
+
+});
 
 
 $(".fa-plus").click(function(){
