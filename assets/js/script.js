@@ -1,6 +1,6 @@
 if(jQuery){
 
-var planbirk_web_dataExchangeURL = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
+var planbirk_web_dataExchangeURL = "https://prod-33.westeurope.logic.azure.com/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke/bsc_Development?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
 var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
