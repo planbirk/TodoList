@@ -47,6 +47,7 @@ $(document).ajaxSuccess(function(event,xhr,options){
 	returnString += "\nEvent: " + event;
 	returnString += "\nxhr: " + xhr;
 	returnString += "\noptions: " + options;
+	JSON.stringify(returnString);
     alert(returnString);
 }); 
 	/*
