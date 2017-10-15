@@ -25,8 +25,9 @@ $("input[type='text']").keypress(function(event){
 		        id: "ele",
 		        value: "1"
 		    };
+		    var method = "POST";
 
-			$.post(url, data,function(data, status){
+			$.post(url, method, data, function(data, status){
 				if(data === 'yes') {
 			    	if(status === "success"){
 			    		//works
