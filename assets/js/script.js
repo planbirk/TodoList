@@ -40,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			$.post(url, method, inputData, function(data, status){ //Note:jQ001
+			var jqxhr = $.post(url, method, inputData, function(data, status){ //Note:jQ001
 				data.always(function(){
 					console.log("data");
 				})
