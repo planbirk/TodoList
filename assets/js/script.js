@@ -1,5 +1,5 @@
 if(jQuery){
-
+	var jqxhr = null;
 
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
@@ -40,7 +40,7 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			var jqxhr = $.post(url, method, inputData, function(data, status){
+			jqxhr = $.post(url, method, inputData, function(data, status){
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
