@@ -1,6 +1,5 @@
 if(jQuery){
 	
-
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
 });
@@ -51,7 +50,7 @@ $("input[type='text']").keypress(function(event){
 
 			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
 	    $.ajax({url: url, type: method, contentType: "JSON", data: inputdata2,
-		    success: function(result,xhr,status){
+		    success: function(result,status,xhr){
             		$("div").html(result);
         	},
         	complete: function(xhr,status){
