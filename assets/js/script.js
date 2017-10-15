@@ -40,28 +40,19 @@ $("input[type='text']").keypress(function(event){
 
 
 //Send FormData [[[$( "#testform" ).serialize()]]]
-			var jqxhr = $.post(url, method, inputData, function(data, status){ //Note:jQ001
-				data.always(function(){
-					console.log("data");
-				})
-				.done.always(function(){
-					console.log("done");
-				})
-				.fail.always(function(){
-					console.log("fail");
-				});
+			$.post(url, method, inputData, function(data, status){ //Note:jQ001
 				if(data === 'yes') {
 				alert("Yes.\nResponseMessage: \n" + data);
 		    		$("h1").toggleClass(".httpError");
 		    		$("h1").val("Error occurred!")
 			    }else {
 			    	alert("noResp.");
-			    }
+			    } 
  
 			    }//end $.post()
-			).then(function (data,xhr,status){
-				alert(xhr.getAllResponseHeaders());
-			});
+			);
+
+			$.get();
 		}
 	}
 });
