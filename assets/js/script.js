@@ -27,22 +27,23 @@ $("input[type='text']").keypress(function(event){
 		    };
 
 
-			$.post(url,data
-		    ,
-		    function(data, status){
-		    	if(status === "success"){
-		    		alert("Data: " + data + "\nStatus: " + status +"\nStatusCode: " + data.status);
-		    	}else{
-		    		$("h1").toggleClass(".httpError");
-		    		$("h1").val("Error occurred!")
-		    	}
-		        
-		    });
+			$.post(url, data ,function(data, status){
+			    	if(status === "success"){
+			    		alert("Data: " + data + "\nStatus: " + status +"\nStatusCode: " + data.status);
+			    	}else{
+			    		$("h1").toggleClass(".httpError");
+			    		$("h1").val("Error occurred!")
+			    	}
+			        
+			    }
+			);
 		}
 	}
 })
 
 	/*
+
+				
 
 #modified http request
 
