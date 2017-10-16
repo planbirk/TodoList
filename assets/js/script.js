@@ -56,9 +56,9 @@ $("input[type='text']").keypress(function(event){
 $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 .done(function(data){
 		$.each(data, function(index, o){
-			setTimeout(function(){
-				$("ul").append("<li data-id='" + o.PrimaryId + "''><span><i class='fa fa-trash'></i></span> " + o.Task + "</li>").hide().fadeIn(500);
-			},800);
+			//setTimeout(function(){
+				$("ul").append("<li data-id='" + o.PrimaryId + "''><span><i class='fa fa-trash'></i></span> " + o.Task + "</li>").hide().delay(800).fadeIn(500);
+			//},800);
 		})
 		//console.log("Total records: " + data.length() + "\n\nJSON.stringify(data): " + JSON.stringify(data));
 	}
