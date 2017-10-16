@@ -57,6 +57,7 @@ input{
 	box-sizing: border-box; 
 	color: #2980b9;
 	border: 3px solid rgba(0,0,0,0); /* removes the gap from input */
+	font-style: italic;
 }
 input:focus{
 	background-color: white;
