@@ -56,7 +56,8 @@ $("input[type='text']").keypress(function(event){
 $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 .done(function(data){
 		//var arr = JSON.stringify(data);
-		$.each(data, function(index, o){
+		$.each(JSON.parse(data), function(index, o){
+			console.log("inside$each");
 			$("ul").append("<li data-id='" + o.id + "''><span><i class='fa fa-trash'></i></span> " + o.Value + "</li>");	
 		})
 		//console.log("Total records: " + data.length() + "\n\nJSON.stringify(data): " + JSON.stringify(data));
