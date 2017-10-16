@@ -49,6 +49,15 @@ $("input[type='text']").keypress(function(event){
 	}
 });
 
+$.getJSON({url: planbirk_web_dataExchangeURL, type: methodGet,
+	success: function(result,status,xhr){
+		//.text(result.response.message);
+		console.log("ajaxSuccess: \n => Status: " + xhr.status + " StatusText: " + xhr.statusText + " ResponseText: " + xhr.responseText);
+		
+	},
+	complete: function(xhr,status){ /*console.log("ajaxComplete"); */},
+	error: function(xhr,status,error){ alert("ajaxError: " + error); }
+});
 
 $(document).ajaxComplete(function(event,xhr,options){
 	console.log(">>>ajaxComplete<<< : AJAX request successfully completed");
