@@ -54,8 +54,8 @@ $("input[type='text']").keypress(function(event){
  * On jQuery.load initalize CDM-Data 
 */
 $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
-.done(function(json){
-		console.log("stringfy.json: " + JSON.stringify(json) + "\n\n\n\n\n json: " + json);
+.done(function(data){
+		console.log("Count(JSON.stringify(data): " + JSON.stringify(data).size());
 	}
 ).fail(
 	function(jqxhr, textStatus, error){
