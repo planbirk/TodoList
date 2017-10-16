@@ -1,6 +1,8 @@
 if(jQuery){
 
 var planbirk_web_dataExchangeURL = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
+	//Updated: $.getJSON expects additional query information  //Added url parameter "crud=read" to default url 
+	var getEntityRecords_bsc_development = "https://prod-58.westeurope.logic.azure.com:443/workflows/5d54e401a7dc43f18b70b7b5403bc35f/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=HUoCukz1DiPBjTm9Kw7DlJvSx54A2I8qLhTnMtmDkcw";
 var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
@@ -48,16 +50,24 @@ $("input[type='text']").keypress(function(event){
 		}
 	}
 });
-
-$.getJSON({url: planbirk_web_dataExchangeURL, type: methodGet,
-	success: function(result,status,xhr){
-		//.text(result.response.message);
-		console.log("ajaxSuccess: \n => Status: " + xhr.status + " StatusText: " + xhr.statusText + " ResponseText: " + xhr.responseText);
-		
-	},
-	complete: function(xhr,status){ /*console.log("ajaxComplete"); */},
-	error: function(xhr,status,error){ alert("ajaxError: " + error); }
-});
+/* 
+ * On jQuery.load initalize CDM-Data 
+*/
+$.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
+.done(function(json){
+		console.log("stringfy.json: " + JSON.stringify(json) + "\n\n\n\n\n json: " + json);
+	}
+).fail(
+	function(jqxhr, textStatus, error){
+		console.log("getJSON: \n => Error: " + error + " \n\nTextStatus: " + textStatus + " \n\njqxhr: " + jqxhr);
+	}
+).always(function(textStatus){
+		/* 
+		 *  insert
+		 *  	something
+		 */ 
+	}
+);
 
 $(document).ajaxComplete(function(event,xhr,options){
 	console.log(">>>ajaxComplete<<< : AJAX request successfully completed");
@@ -68,9 +78,6 @@ $(document).ajaxComplete(function(event,xhr,options){
 	// console.log("event: \n" + JSON.stringify(event));
 	// console.log("xhr: \n" + JSON.stringify(xhr));
  //    console.log("options: \n" + JSON.stringify(options));
-    if ( options.url === "https://prod-33.westeurope.logic.azure.com/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54") {
-    	console.log( "Triggered ajaxComplete handler. The result is " + xhr.responseText );
-	}
 
 });
 
@@ -82,3 +89,11 @@ $(".fa-plus").click(function(){
 	alert("nojQuery");
 }
 
+
+
+/*  CRUD
+Create, Datensatz anlegen,
+Read oder Retrieve, Datensatz lesen,
+Update, Datensatz aktualisieren, und
+Delete oder Destroy, Datensatz löschen.
+*/
