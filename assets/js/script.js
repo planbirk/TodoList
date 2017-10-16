@@ -53,14 +53,14 @@ $("input[type='text']").keypress(function(event){
 /* 
  * On jQuery.load initalize CDM-Data 
 */
-$.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
+var x = $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 .done(function(data){
 		$.each(data, function(index, o){
 			//setTimeout(function(){
 				$("ul").append("<li data-id='" + o.PrimaryId + "''><span><i class='fa fa-trash'></i></span> " + o.Task + "</li>").hide().delay(800).fadeIn(500);
 			//},800);
 		})
-		//console.log("Total records: " + data.length() + "\n\nJSON.stringify(data): " + JSON.stringify(data));
+		console.log("Total records: [" + data.length() + "]");
 	}
 ).fail(
 	function(jqxhr, textStatus, error){
@@ -75,15 +75,7 @@ $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 );
 
 $(document).ajaxComplete(function(event,xhr,options){
-	console.log(">>>ajaxComplete<<< : AJAX request successfully completed");
-	
-	// returnString += "\nEvent: " + event;
-	// returnString += "\nxhr: " + xhr;
-	// returnString += "\noptions: " + options;
-	// console.log("event: \n" + JSON.stringify(event));
-	// console.log("xhr: \n" + JSON.stringify(xhr));
- //    console.log("options: \n" + JSON.stringify(options));
-
+//	console.log(">>>ajaxComplete<<< : AJAX request successfully completed");
 });
 
 $(".fa-plus").click(function(){
