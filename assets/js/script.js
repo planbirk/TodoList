@@ -55,7 +55,7 @@ $("input[type='text']").keypress(function(event){
 */
 $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 .done(function(data){
-		console.log("Count(JSON.stringify(data): " + JSON.stringify(data).size());
+		console.log("JSON.stringify(data): " + JSON.stringify(data));
 	}
 ).fail(
 	function(jqxhr, textStatus, error){
