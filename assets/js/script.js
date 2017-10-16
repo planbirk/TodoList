@@ -5,6 +5,7 @@ var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
 
+
 	
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
@@ -18,42 +19,32 @@ $("ul").on("click","span",function(event){
 	});
 		
 });
- 
+/* 
+	* 15.10.17 Added ajax-request(post data to logic app) for new items
+*/
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
 		//this is equals to input element
 		if($(this).val() !== ""){
 			$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + $(this).val() + "</li>");
-			//$(this).val(""); //Manually delete the input value, after processing
+			
 
 		    var newRecord = {
 		        id: 1,
 		        value: $(this).val()
 		    };
- 			//   var inputData = JSON.parse('{"testingElement": "2"}', (key,value) =>
-				// typeof value === 'number'
-				// 	? value * 2 
-				// 	: value
-		  //   	); 
-
-			/* SYNTAX: $.ajax({name:value, name:value, ... }) */
-		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newRecord,
-		      			
+					/* SYNTAX: $.ajax({name:value, name:value, ... }) */
+		      $.ajax({url: planbirk_web_dataExchangeURL, type: methodPost, contentType: typeOfContent, data: newRecord,		      			
 			    success: function(result,status,xhr){
 			    	$("h1").text(result.response.message);
-									    //result.response.id/value/respone
-							        	//status eq "success"
-							        	// xhr 
-							        		// .status = 200 
-							        		// .responseText = [logicapp body]
-							        		// .statusText = "success"
-							        		// .status.then(function)
 			    	console.log("ajaxSuccess: \n => Status: " + xhr.status + " StatusText: " + xhr.statusText + " ResponseText: " + xhr.responseText);
-			    	console.log();
+			    	$(this).val(""); //Make sure that the input field is empty for new items
 	        	},
 	        	complete: function(xhr,status){ /*console.log("ajaxComplete"); */},
 	        	error: function(xhr,status,error){ alert("ajaxError: " + error); }
 	        });
+
+
 		}
 	}
 });
