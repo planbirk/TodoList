@@ -55,11 +55,11 @@ $("input[type='text']").keypress(function(event){
 */
 $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}})
 .done(function(data){
-		var a = JSON.stringify(data);
-		$.each(a, function(i,o){
+		//var arr = JSON.stringify(data);
+		$.each(data, function(index, o){
 			$("ul").append("<li data-id='" + o.id + "''><span><i class='fa fa-trash'></i></span> " + o.Value + "</li>");	
 		})
-		//console.log("JSON.stringify(data): " + JSON.stringify(data));
+		//console.log("Total records: " + data.length() + "\n\nJSON.stringify(data): " + JSON.stringify(data));
 	}
 ).fail(
 	function(jqxhr, textStatus, error){
