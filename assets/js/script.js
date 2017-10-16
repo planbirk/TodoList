@@ -7,8 +7,6 @@ var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
 
-
-	
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
 });
@@ -60,7 +58,7 @@ var x = $.getJSON({url: getEntityRecords_bsc_development, data: {crud : "read"}}
 				$("ul").append("<li data-id='" + o.PrimaryId + "''><span><i class='fa fa-trash'></i></span> " + o.Task + "</li>").hide().delay(800).fadeIn(500);
 			//},800);
 		})
-		console.log("Total records: [" + data.length() + "]");
+		console.log("Total records [" + data.length + "]");
 	}
 ).fail(
 	function(jqxhr, textStatus, error){
