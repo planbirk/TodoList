@@ -7,6 +7,10 @@ var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
 
+var init = (function(){
+	x();
+})();
+
 $("ul").on("click","li",function(){	
 	$(this).toggleClass("completed");
 });
