@@ -2,7 +2,7 @@ if(jQuery){
 
 var planbirk_web_dataExchangeURL = "https://prod-33.westeurope.logic.azure.com:443/workflows/bbe461a956894542adcd0127b4ae4274/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=kc2xFD1cF50OZ_cjM0gZ8GUofni74jlmfxQR5fhM-54";
 	//Updated: $.getJSON expects additional query information  //Added url parameter "crud=read" to default url 
-	var getEntityRecords_bsc_development = "https://prod-58.westeurope.logic.azure.com:443/workflows/5d54e401a7dc43f18b70b7b5403bc35f/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=HUoCukz1DiPBjTm9Kw7DlJvSx54A2I8qLhTnMtmDkcw";
+var getEntityRecords_bsc_development = "https://prod-58.westeurope.logic.azure.com:443/workflows/5d54e401a7dc43f18b70b7b5403bc35f/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=HUoCukz1DiPBjTm9Kw7DlJvSx54A2I8qLhTnMtmDkcw";
 var methodPost ="POST";
 var methodGet ="GET";
 var typeOfContent = "JSON";
